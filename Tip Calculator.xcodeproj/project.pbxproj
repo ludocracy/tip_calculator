@@ -16,6 +16,7 @@
 		29CE5FAB1E733B3F008F10B3 /* Tip_CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CE5FAA1E733B3F008F10B3 /* Tip_CalculatorUITests.swift */; };
 		29CE5FB91E734DCB008F10B3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CE5FB81E734DCB008F10B3 /* SettingsViewController.swift */; };
 		29CE5FBB1E766111008F10B3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CE5FBA1E766111008F10B3 /* Helper.swift */; };
+		29CE5FBF1E7722C2008F10B3 /* NSUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CE5FBE1E7722C2008F10B3 /* NSUserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		29CE5FAC1E733B3F008F10B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29CE5FB81E734DCB008F10B3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		29CE5FBA1E766111008F10B3 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		29CE5FBE1E7722C2008F10B3 /* NSUserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				29CE5F8A1E733B3F008F10B3 /* AppDelegate.swift */,
 				29CE5F8C1E733B3F008F10B3 /* ViewController.swift */,
+				29CE5FBE1E7722C2008F10B3 /* NSUserDefaultsKeys.swift */,
 				29CE5FBA1E766111008F10B3 /* Helper.swift */,
 				29CE5F8E1E733B3F008F10B3 /* Main.storyboard */,
 				29CE5F911E733B3F008F10B3 /* Assets.xcassets */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CE5F8D1E733B3F008F10B3 /* ViewController.swift in Sources */,
+				29CE5FBF1E7722C2008F10B3 /* NSUserDefaultsKeys.swift in Sources */,
 				29CE5F8B1E733B3F008F10B3 /* AppDelegate.swift in Sources */,
 				29CE5FB91E734DCB008F10B3 /* SettingsViewController.swift in Sources */,
 				29CE5FBB1E766111008F10B3 /* Helper.swift in Sources */,

@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        if !defaults.boolForKey("defTipChanged") {
+        if !defaults.boolForKey(NSUserDefaultsKeys.DEFAULT_TIP_CHANGED) {
             let defaultTip = 20
-            defaults.setInteger(defaultTip, forKey: "defaultTip")
+            defaults.setInteger(defaultTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
             defaults.synchronize()
         }
         for index in 0...2 {
@@ -29,7 +29,13 @@ class ViewController: UIViewController {
         }
         tipSelector.selectedSegmentIndex = 1
         
-        if Double(billField.text!) > 0 {
+        let savedLastBill = defaults.doubleForKey(NSUserDefaultsKeys.LAST_BILL)
+
+        if savedLastBill > 0 {
+            billField.text = String(savedLastBill)
+        }
+        
+        if getBill() > 0 {
             calculateTip(self)
         }
     }
@@ -37,6 +43,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        billField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setDouble(getBill(), forKey: NSUserDefaultsKeys.LAST_BILL)
+        defaults.synchronize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +66,7 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(sender: AnyObject) {
         let tipDecimal = 0.01 * Double(Helper.getTipPercentages()[tipSelector.selectedSegmentIndex])
-        let bill = Double(billField.text!) ?? 0.0
+        let bill = getBill()
         let tip = bill * tipDecimal
         let total = bill + tip
         
@@ -58,6 +74,8 @@ class ViewController: UIViewController {
         totalLabel.text = String(format: "$%.2f", total)
     }
     
-
+    func getBill() -> Double {
+        return Double(billField.text!) ?? 0.0
+    }
 }
 

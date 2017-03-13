@@ -36,8 +36,8 @@ class SettingsViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: "defTipChanged")
-        defaults.setInteger(curDefTip, forKey: "defaultTip")
+        defaults.setBool(true, forKey: NSUserDefaultsKeys.DEFAULT_TIP_CHANGED)
+        defaults.setInteger(curDefTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
         defaults.synchronize()
     }
     
@@ -55,16 +55,5 @@ class SettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
