@@ -14,8 +14,8 @@ class Helper{
         return defaults.integerForKey("defaultTip")
     }
     
-    static func getTipPercentages() -> [Int] {
-        let midTip = savedDefTip()
+    static func getTipPercentages(givenTip: Int = 0) -> [Int] {
+        let midTip = givenTip == 0 ? savedDefTip() : givenTip
         return [midTip - 2, midTip, midTip + 2]
     }
 }

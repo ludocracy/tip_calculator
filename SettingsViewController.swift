@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
     
     func setTipDisplay() {
         for index in 0...2 {
-            defaultTipDisplay.setTitle("\(Helper.getTipPercentages()[index])%", forSegmentAtIndex: index)
+            defaultTipDisplay.setTitle("\(Helper.getTipPercentages(curDefTip)[index])%", forSegmentAtIndex: index)
         }
     }
 

@@ -87,7 +87,6 @@
                                         </segments>
                                         <connections>
                                             <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zlt-hH-YQI"/>
-                                            <action selector="tipValChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="T6f-OI-fFy"/>
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="jPK-3m-rIb">

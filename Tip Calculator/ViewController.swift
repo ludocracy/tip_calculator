@@ -28,6 +28,10 @@ class ViewController: UIViewController {
             tipSelector.setTitle("\(Helper.getTipPercentages()[index])%", forSegmentAtIndex: index)
         }
         tipSelector.selectedSegmentIndex = 1
+        
+        if Double(billField.text!) > 0 {
+            calculateTip(self)
+        }
     }
     
     override func viewDidLoad() {
