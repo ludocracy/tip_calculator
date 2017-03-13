@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     
     lazy var curDefTip = Int()
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         curDefTip = Helper.savedDefTip()
@@ -26,18 +26,18 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tipStepper: UIStepper!
     
-    @IBAction func defaultTipStepper(sender: UIStepper) {
+    @IBAction func defaultTipStepper(_ sender: UIStepper) {
         let val = Int(sender.value)
         curDefTip = val
         setTipDisplay()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: NSUserDefaultsKeys.DEFAULT_TIP_CHANGED)
-        defaults.setInteger(curDefTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: NSUserDefaultsKeys.DEFAULT_TIP_CHANGED)
+        defaults.set(curDefTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
         defaults.synchronize()
     }
     
@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
     
     func setTipDisplay() {
         for index in 0...2 {
-            defaultTipDisplay.setTitle("\(Helper.getTipPercentages(curDefTip)[index])%", forSegmentAtIndex: index)
+            defaultTipDisplay.setTitle("\(Helper.getTipPercentages(curDefTip)[index])%", forSegmentAt: index)
         }
     }
 

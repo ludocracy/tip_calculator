@@ -15,21 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipSelector: UISegmentedControl!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        if !defaults.boolForKey(NSUserDefaultsKeys.DEFAULT_TIP_CHANGED) {
+        if !defaults.bool(forKey: NSUserDefaultsKeys.DEFAULT_TIP_CHANGED) {
             let defaultTip = 20
-            defaults.setInteger(defaultTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
+            defaults.set(defaultTip, forKey: NSUserDefaultsKeys.DEFAULT_TIP)
             defaults.synchronize()
         }
         for index in 0...2 {
-            tipSelector.setTitle("\(Helper.getTipPercentages()[index])%", forSegmentAtIndex: index)
+            tipSelector.setTitle("\(Helper.getTipPercentages()[index])%", forSegmentAt: index)
         }
         tipSelector.selectedSegmentIndex = 1
         
-        let savedLastBill = defaults.doubleForKey(NSUserDefaultsKeys.LAST_BILL)
+        let savedLastBill = defaults.double(forKey: NSUserDefaultsKeys.LAST_BILL)
 
         if savedLastBill > 0 {
             billField.text = String(savedLastBill)
@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         billField.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = UserDefaults.standard
         
-        defaults.setDouble(getBill(), forKey: NSUserDefaultsKeys.LAST_BILL)
+        defaults.set(getBill(), forKey: NSUserDefaultsKeys.LAST_BILL)
         defaults.synchronize()
     }
 
@@ -60,11 +60,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func returnTap(sender: AnyObject) {
+    @IBAction func returnTap(_ sender: AnyObject) {
         view.endEditing(true)
     }
     
-    @IBAction func calculateTip(sender: AnyObject) {
+    @IBAction func calculateTip(_ sender: AnyObject) {
         let tipDecimal = 0.01 * Double(Helper.getTipPercentages()[tipSelector.selectedSegmentIndex])
         let bill = getBill()
         let tip = bill * tipDecimal

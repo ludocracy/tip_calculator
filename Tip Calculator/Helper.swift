@@ -10,11 +10,11 @@ import UIKit
 
 class Helper{
     static func savedDefTip() -> Int {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.integerForKey("defaultTip")
+        let defaults = UserDefaults.standard
+        return defaults.integer(forKey: "defaultTip")
     }
     
-    static func getTipPercentages(givenTip: Int = 0) -> [Int] {
+    static func getTipPercentages(_ givenTip: Int = 0) -> [Int] {
         let midTip = givenTip == 0 ? savedDefTip() : givenTip
         return [midTip - 2, midTip, midTip + 2]
     }
